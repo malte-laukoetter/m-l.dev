@@ -1,0 +1,17 @@
+<figure class="post-cover">
+<picture>
+  {{ with .Resource }}
+  <source srcset="
+      {{ if (ge .Width 200 ) }}  {{ (.Resize "200x jpg" ).RelPermalink }} 200w  {{ end }}
+      {{ if (ge .Width 400 ) }}, {{ (.Resize "400x jpg" ).RelPermalink }} 400w  {{ end }}
+      {{ if (ge .Width 600 ) }}, {{ (.Resize "600x jpg" ).RelPermalink }} 600w  {{ end }}
+      {{ if (ge .Width 800 ) }}, {{ (.Resize "800x jpg" ).RelPermalink }} 800w  {{ end }}
+      {{ if (ge .Width 1200) }}, {{ (.Resize "1200x jpg").RelPermalink }} 1200w {{ end }}
+    " sizes="(max-width: {{.Width}}px) 100vw, {{.Width}}px" type="image/jpg">
+  {{end}}
+  <img src="{{ .Resource.RelPermalink }}" {{ with .Title}} title="{{ . }}"{{ end }} {{ if .Alt }} alt="{{ .Alt }}"{{ else if .Title}} alt="{{ .Title }}"{{ end }}/>
+</picture>
+{{ if .Title }}
+<figcaption>{{.Title}}</figcaption>
+{{ end }}
+</figure>

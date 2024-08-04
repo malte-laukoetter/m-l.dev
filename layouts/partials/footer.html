@@ -1,0 +1,11 @@
+<footer id="footer">
+    <span><a href="{{ $.Site.Params.Imprint }}">Imprint</a> | <a href="{{ $.Site.Params.Privacy }}">Privacy Policy</a> {{ if (os.Getenv "GITHUB_SHA")}}| {{(os.Getenv "GITHUB_SHA" | truncate 7 "")}} {{end}}| {{now.Format "2006-01-02 15:04:05 MST"}}</span>
+</footer>
+
+<script type="module">
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+      for (const registration of registrations) {
+          registration.unregister();
+      }
+  });
+</script>

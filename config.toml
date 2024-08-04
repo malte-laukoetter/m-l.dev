@@ -1,0 +1,109 @@
+baseurl = "https://m-l.dev/"
+languageCode = "en-us"
+paginate = 5
+enableGitInfo = true
+
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 5
+
+  # show selector to switch language
+  showLanguageSelector = false
+
+  # set theme to full screen width
+  fullWidthTheme = false
+
+  # center theme with default width
+  centerTheme = true
+
+  # set a custom favicon (default is a `themeColor` square)
+  favicon = "favicon.ico"
+  appleTouchIcon = "icons/icon-192x192.png"
+  themeColor = "rgb(217, 145, 13)"
+
+  # set all headings to their default size (depending on browser settings)
+  # it's set to `true` by default
+  # oneHeadingSize = false
+
+  imprint = "/imprint"
+  privacy = "/privacy"
+
+  dark = "on"
+  highlight = true
+
+[permalinks]
+  posts = "/:filename/"
+
+[params.mastodon]
+  instance = "climatejustice.social"
+  name = "malte"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "Malte Laukötter"
+    subtitle = "The presonal website of Malte Laukötter"
+    owner = ""
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "Malte Laukötter"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "contact"
+        name = "Contact"
+        url = "/contact"
+        weight = 30
+      [[languages.en.menu.main]]
+        identifier = "github"
+        name = "GitHub"
+        url = "https://github.com/malte-laukoetter"
+        weight = 40
+      [[languages.en.menu.main]]
+        identifier = "mastodon"
+        name = "Mastodon"
+        url = "https://climatejustice.social/@malte"
+        weight = 50
+      [[languages.en.menu.main]]
+        identifier = "linkedin"
+        name = "Linkedin"
+        url = "https://www.linkedin.com/in/malte-lauk%C3%B6tter/"
+        weight = 60
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = true
+    respectDoNotTrack = true
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = true
+    simple = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = true
+    privacyEnhanced = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[security]
+   [security.funcs]
+     getenv = ['^HUGO_', '^COMMIT_REF$', 'GITHUB_SHA']

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article>
+    <header id="post-header">
+        <h1>{{ .Title }}</h1>
+            <div>
+            {{- if isset .Params "date" -}}
+                <time>{{ .Date.Format "2006-01-02" }}</time>
+            {{- end -}}
+            </div>
+    </header>
+
+    {{ if .Params.Cover }}
+        {{ partial "image.html"  (dict "Resource" (.Resources.GetMatch .Params.Cover) "Title" .Params.CoverTitle) }}
+    {{ end }}
+
+    {{- .Content -}}
+</article>
+{{ end }}
